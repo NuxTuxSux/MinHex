@@ -34,7 +34,8 @@ var base_clr = "#75b92d",
     clicked_clr = base_clr,
     clicked_opacity = .35,
     over_clr = base_clr,
-    over_opacity = clicked_opacity * 1.8,
+    over_opacity = clicked_opacity * 1.6,
+    over_nbh_opacity = clicked_opacity * 2.4,
     // bomb_clr = "#ff140b",
     // bomb_clr = "#d9160f",
     bomb_clr = "#df1c15",
@@ -176,18 +177,47 @@ function sendScore(username, score) {
 
 
 function mouseOver() {
-    if (this.state == "virgin")
-        this.animate({
-            fill: over_clr,
-            opacity: over_opacity
-        }, anim_dur, mina.easein);
+    // if (this.state == "virgin")
+    // this.animate({
+        //     fill: over_clr,
+        //     opacity: over_opacity
+        // }, anim_dur, mina.easein);
+        this.nbHood.forEach(element => {
+            if (grid.cell[element].state == "virgin")
+                grid.cell[element].animate({
+                    fill: over_clr,
+                    opacity: over_nbh_opacity
+                }, anim_dur, mina.easein)
+            if (this.state == "virgin")
+                this.animate({
+                    fill: over_clr,
+                    opacity: over_opacity
+                }, anim_dur, mina.easein)
+            // console.log(element)
+            }
+        )
+}
 
 function mouseOut() {
-    if (this.state == "virgin")
-        this.animate({
-            fill: base_clr,
-            opacity: base_opacity
-        }, anim_dur, mina.easeout);
+    // if (this.state == "virgin")
+    //     this.animate({
+        //         fill: base_clr,
+        //         opacity: base_opacity
+        //     }, anim_dur, mina.easeout);
+        this.nbHood.forEach(element => {
+            if (grid.cell[element].state == "virgin")
+                grid.cell[element].animate({
+                    fill: base_clr,
+                    opacity: base_opacity
+                }, anim_dur, mina.easein)
+            if (this.state == "virgin")
+                this.animate({
+                    fill: base_clr,
+                    opacity: base_opacity
+                }, anim_dur, mina.easein)
+            // console.log(element)
+            }
+        )
 }
 
 function drawCell(i, j) {
