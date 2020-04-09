@@ -93,22 +93,21 @@ svg text {
    -webkit-text-shadow: 0 2px 1px rgba(0, 0, 0, .3);
    -moz-text-shadow: 0 2px 1px rgba(0, 0, 0, .3);
    text-shadow: 0 2px 1px rgba(0, 0, 0, .3);
+   pointer-events: none;
 }
 
 svg#menu text {
    -webkit-text-shadow: 0 2px 3px rgba(0, 0, 0, .35);
    -moz-text-shadow: 0 2px 3px rgba(0, 0, 0, .35);
    text-shadow: 0 2px 3px rgba(0, 0, 0, .35);
+   pointer-events: all;
+   cursor: row-resize;
 }
 
 svg text,
 svg image,
 svg polygon {
    cursor: pointer;
-}
-
-svg#menu text {
-   cursor: row-resize;
 }
 
 /* fix positioning of relative bomb numbers */
